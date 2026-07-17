@@ -9,11 +9,13 @@ public class PillarSpawnerScript: MonoBehaviour
     public GameObject pillar;
     public float spawnRate = 2;
     public float heightOffset = 0.55f;
+    public BatScript bat;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SpawnPipe();
+        bat = GameObject.FindGameObjectWithTag("Bat").GetComponent<BatScript>();
     }
 
     // Update is called once per frame
@@ -32,9 +34,12 @@ public class PillarSpawnerScript: MonoBehaviour
 
     void SpawnPipe()
     {
-        float lowestPoint = transform.position.y - heightOffset;
-        float highestPoint = transform.position.y + heightOffset;
+        if (bat.batIsAlive)
+        {
+            float lowestPoint = transform.position.y - heightOffset;
+            float highestPoint = transform.position.y + heightOffset;
 
-        Instantiate(pillar, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+            Instantiate(pillar, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        }
     }
 }
