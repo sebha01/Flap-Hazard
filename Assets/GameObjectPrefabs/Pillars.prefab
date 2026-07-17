@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 1
+  deadZone: -1.9
 --- !u!1 &6692093395410148138
 GameObject:
   m_ObjectHideFlags: 0
