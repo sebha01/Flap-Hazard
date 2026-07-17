@@ -11,11 +11,18 @@ public class BatScript : MonoBehaviour
     public float jumpStrength = 2.0f;
     public LogicScript logic;
     public bool batIsAlive = true;
+    
+    
+    Animator animator;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         batIsAlive = true;
+        animator.SetBool("batIsAlive", batIsAlive);
+        
         JumpAction = InputSystem.actions.FindAction("Jump");
     }
 
@@ -32,8 +39,9 @@ public class BatScript : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Bounds"))
         {
-            logic.GameOver();
             batIsAlive = false;
+            animator.SetBool("batIsAlive", batIsAlive);
+            logic.GameOver();
         }
     }
 }
