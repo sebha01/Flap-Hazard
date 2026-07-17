@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LogicScript : MonoBehaviour
 {
@@ -7,9 +8,15 @@ public class LogicScript : MonoBehaviour
     public Text scoreText;
 
     [ContextMenu("Increase Score")]
-    public void addScore()
+    public void AddScore(int scoreToAdd)
     {
-        playerScore += 1;
+        playerScore += scoreToAdd;
         scoreText.text = "Score: " + playerScore.ToString();
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }

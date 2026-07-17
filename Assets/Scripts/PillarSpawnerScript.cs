@@ -8,7 +8,7 @@ public class PillarSpawnerScript: MonoBehaviour
     //public variables
     public GameObject pillar;
     public float spawnRate = 2;
-    public float heightOffset = 0.65f;
+    public float heightOffset = 0.55f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
