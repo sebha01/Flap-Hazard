@@ -22,6 +22,7 @@ public class PillarThresholdScript : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             logic.AddScore(1);
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("PointIncrease");
         }
     }
 }

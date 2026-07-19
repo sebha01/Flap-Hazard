@@ -30,17 +30,23 @@ public class BatScript : MonoBehaviour
     void Update()
     {
         if (JumpAction.IsPressed() && batIsAlive)
-        {      
-            myRigidBody.linearVelocity = Vector2.up * jumpStrength; 
+        {
+            myRigidBody.linearVelocity = Vector2.up * jumpStrength;
+        }
+
+        if (JumpAction.WasPressedThisFrame() && batIsAlive)
+        {
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("BatFlapSfx");
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Bounds"))
+        if (!collision.gameObject.CompareTag("Bounds") && batIsAlive)
         {
             batIsAlive = false;
             animator.SetBool("batIsAlive", batIsAlive);
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("GameOverSfx"); 
             logic.GameOver();
         }
     }

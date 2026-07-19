@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   moveSpeed: 1
   deadZone: -1.9
+  bat: {fileID: 0}
 --- !u!1 &6692093395410148138
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,3 +417,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f950631f20b26b4f846e6819dba023c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  logic: {fileID: 0}

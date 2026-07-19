@@ -8,6 +8,11 @@ public class LogicScript : MonoBehaviour
     public Text scoreText;
     public GameObject gameOverScreen;
 
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("MainGameMusic");
+    }
+
     [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {

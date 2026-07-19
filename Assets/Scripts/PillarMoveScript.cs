@@ -21,7 +21,7 @@ public class PillarMoveScript : MonoBehaviour
 
             if (transform.position.x < deadZone)
             {
-                Debug.Log("Pillar Game Object Deletied");
+                Debug.Log("Pillar Game Object Deleted");
                 Destroy(gameObject);
             }
         }
